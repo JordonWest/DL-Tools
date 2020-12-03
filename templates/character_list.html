@@ -1,2 +1,11 @@
 <h1>Hello {{user.username}}!</h1>
 <h3>Here is a list of your characters!!!!</h3>
+{%if characters%}
+	<tr>
+	{%for char in characters%}
+		<a href='/character_detail/{{user.id}}/{{user.token}}/{{char.id}}'>{{char.name}}</a></br>
+	{%endfor%}
+{%endif%}
+</br>
+</br>
+<a href='/'>Sign my ass out!</a>

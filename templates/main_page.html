@@ -1,14 +1,24 @@
 <h1>cowboy teim</h1>
 {%if oops%}
-<h5>oops, username or password not found, partner! Try again</h5>
+	<h5>oops, username or password not found, partner! Try again</h5>
 {%endif%}
-<form action="/login" method="POST">
-  <label for="username">User name</label></br> 
-  <input id="username" type="text" name="username"></br></br>
-  <label for="password">Password</label></br> 
-  <input for="password" type="text" name="password"></br></br>
-  <input type="submit" value="Sign in">
-</form>
+{%if debug == False%}
+	<form action="/login" method="POST">
+		<label for="username">User name</label></br> 
+		<input id="username" type="text" name="username"></br></br>
+		<label for="password">Password</label></br> 
+		<input for="password" type="text" name="password"></br></br>
+		<input type="submit" value="Sign in">
+	</form>
+{%else%}
+	<form action="/login" method="POST">
+		<label for="username">User name</label></br> 
+		<input id="username" type="text" value="squid" name="username"></br></br>
+		<label for="password">Password</label></br> 
+		<input for="password" type="text" value="1" name="password"></br></br>
+		<input type="submit" value="Sign in">
+	</form>
+{%endif%}
 </br>
 </br>
 </br>
