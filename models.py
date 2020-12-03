@@ -8,7 +8,7 @@ class BaseModel(Model):
     database=db
 
 class Users(BaseModel):
-  name = CharField(unique=True, null=False)
+  username = CharField(unique=True, null=False)
   password = CharField(null=False)
 
 db.connect()

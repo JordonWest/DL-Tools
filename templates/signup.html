@@ -1,0 +1,15 @@
+<h1>Make yourself a new account!</h1>
+{%if oops%}
+<h5>Uh oh.. Looks like that username is already taken.. Try again, why don't ya</h5>
+{%endif%}
+<form action="/signup" method="POST">
+  <label for="username">User name</label></br>
+  <input id="username" type="text" name="username"></br></br>
+  <label for="password">Password</label></br>
+  <input for="password" type="text" name="password"></br></br>
+  <input type="submit" value="Create account">
+</form>
+</br>
+</br>
+</br>
+<a href="/">Take me back</a>

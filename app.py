@@ -12,16 +12,22 @@ app = Flask(__name__)
 def main():
     return render_template("main_page.html")
 
-@app.route("/signup", methods=["POST"])
+@app.route("/signup", methods=["GET", "POST"])
 def create_user():
-	print('hit me')
-	print(request.form)
-	return 'hello'
+	if request.method == "POST":
+		data = request.form
+		if Users.get_or_none(username=data['username']):
+			return render_template("signup.html", oops=True)
+		user = Users.create(username=data['username'], password=data['password'])
+		return render_template("character_list.html", user=user)
+	elif request.method == "GET":
+		return render_template("signup.html")
+	
 @app.route("/login", methods=["POST"])
 def get_user():
-    given = request.get_json()
-    user = User.get_or_none(email=given["email"], password=given["password"])
-    if user is not None:
-        return json.dumps(model_to_dict(user))
-    else:
-        return 'not found', status.HTTP_404_NOT_FOUND
+	data = request.form
+	user = Users.get_or_none(username=data["username"], password=data["password"])
+	if user is not None:
+		return render_template("character_list.html", user=user) 
+	else:
+		return render_template("main_page.html", oops=True) 

@@ -1,0 +1,3 @@
+#!/bin/bash
+rm cowboy.db
+flask run
