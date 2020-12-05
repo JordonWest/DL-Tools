@@ -36,7 +36,7 @@ def get_user():
 		return render_template("character_list.html", user=user, characters=characters) 
 	else:
 		return render_template("main_page.html", oops=True) 
-
+#debounce
 @app.route("/character_detail/<user_id>/<token>/<id>", methods=["GET", "POST"])
 def cowpoke_detail(user_id, token, id):
 	user = Users.get(id=user_id)
