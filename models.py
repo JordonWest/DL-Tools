@@ -16,5 +16,6 @@ class Characters(BaseModel):
 	user = ForeignKeyField(Users, backref="characters")
 	name = CharField(null=False)
 
+
 db.connect()
 db.create_tables([Users, Characters])
